@@ -20,7 +20,7 @@
 set -eu
 
 project_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-sdk_home=${DEVECO_SDK_HOME:-/Users/cutey/Library/Huawei/Sdk}
+sdk_home=${DEVECO_SDK_HOME:-$HOME/Library/Huawei/Sdk}
 deveco_home=${DEVECO_HOME:-/Applications/DevEco-Studio.app/Contents}
 hvigor="$deveco_home/tools/hvigor/bin/hvigorw"
 previewer_root="$deveco_home/sdk/default/hms/previewer/liteWearable"

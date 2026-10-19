@@ -11,7 +11,7 @@ case "$mode" in
 esac
 
 project_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-sdk_home=${DEVECO_SDK_HOME:-/Users/cutey/Library/Huawei/Sdk}
+sdk_home=${DEVECO_SDK_HOME:-$HOME/Library/Huawei/Sdk}
 deveco_home=${DEVECO_HOME:-/Applications/DevEco-Studio.app/Contents}
 node_home="$deveco_home/tools/node"
 hvigor="$deveco_home/tools/hvigor/bin/hvigorw"
