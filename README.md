@@ -168,3 +168,7 @@ wc -c /tmp/<本次镜像>/entry/build/default/intermediates/loader_out_lite/defa
 FIT 5 真机是否开放加速度计/陀螺仪仍需真机确认，详见 `../docs/huawei-fit5-research.md`。
 
 正式发布前还需要在 DevEco Studio 进行签名、HAP 构建、AppGallery Connect 测试包上传，并在真实 FIT 5 上完成 iPhone 与鸿蒙单框架手机两条安装链路的验收。
+
+## License
+
+本项目基于 [MIT License](LICENSE) 开源。
