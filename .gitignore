@@ -1,0 +1,17 @@
+# OS / IDE
+.DS_Store
+.idea/
+.cache/
+
+# Build outputs
+.hvigor/
+/entry/build/
+build/
+dist/
+oh_modules/
+*.hap
+*.bin
+local.properties
+
+# Runtime / previewer data
+file_system/
