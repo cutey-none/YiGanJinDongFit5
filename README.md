@@ -47,7 +47,7 @@ debug 构建不做压缩（sport 页约 42KB、app.js 约 44KB），是开发期
 
 ## 在 DevEco Studio 中打开
 
-本机 DevEco Studio 打开 `/Users/cutey/DevEcoProjects/YiGanJinDongFit5`（全英文路径），等待项目同步。
+本机 DevEco Studio 打开 `~/DevEcoProjects/YiGanJinDongFit5`（全英文路径），等待项目同步。
 该目录已同步仓库 `native-fit5` 的最新源码、资源与脚本，包名为 `com.xxl.wqy.bobo.ergou.hole_in_one`。
 仓库中的 `native-fit5` 保留用于 Git 版本管理；修改原生代码后必须同步到 DevEco 工程，避免运行旧副本。
 同步时保留目标工程的 `build-profile.json5`（本地签名配置）及 `.idea/`，不复制构建缓存和产物：
@@ -57,7 +57,7 @@ debug 构建不做压缩（sport 页约 42KB、app.js 约 44KB），是开发期
 rsync -a --exclude '.idea/' --exclude '.cache/' --exclude '.hvigor/' \
   --exclude 'build/' --exclude 'dist/' --exclude 'file_system/' \
   --exclude '/build-profile.json5' \
-  native-fit5/ /Users/cutey/DevEcoProjects/YiGanJinDongFit5/
+  native-fit5/ ~/DevEcoProjects/YiGanJinDongFit5/
 ```
 
 `scripts/render-images.sh` 依赖仓库的 `assets/`，须在仓库中生成资源后再同步；构建、算法测试与运行时加载检查可直接在 DevEco 工程目录执行。
