@@ -1,0 +1,83 @@
+/* HUAWEI WATCH FIT 5：480 x 408，designWidth 与屏幕等宽，所以 1px = 1 设备像素。
+   纵向预算：10(上留白) + 20(顶栏) + 366(页面) + 12(下留白) = 408。 */
+.root { width: 100%; height: 100%; padding: 10px 14px 12px 14px; background-color: #0d100e; color: #f5f7f3; flex-direction: column; }
+.topline { width: 100%; height: 20px; justify-content: space-between; align-items: center; }
+.brand { font-size: 15px; color: #f5f7f3; }
+.battery, .tiny, .eyebrow { font-size: 10px; color: #89958d; }
+.page { width: 100%; height: 366px; flex-direction: column; }
+.row { width: 100%; height: 26px; flex-direction: row; justify-content: space-between; align-items: center; }
+/* ACELite 里同一行放两个 text 时，第二个不会渲染：
+   必须各自包一层 div，并给 div 显式的宽和高。 */
+.row-main { width: 60%; height: 26px; }
+.row-side { width: 36%; height: 26px; text-align: right; }
+.eyebrow { margin-top: 6px; color: #9aaa9e; letter-spacing: 1px; }
+.page-title { margin-top: 2px; margin-bottom: 8px; font-size: 24px; color: #f5f7f3; }
+.page-title-sm { margin-top: 2px; margin-bottom: 4px; font-size: 20px; color: #f5f7f3; }
+.muted { font-size: 11px; color: #a1aca4; }
+.accent { color: #b8ef71; font-size: 11px; }
+.center { text-align: center; }
+
+.primary { width: 100%; height: 46px; border-radius: 14px; background-color: #b8ef71; color: #122018; font-size: 16px; }
+.secondary, .opponent, .flat, .success, .choice, .back, .step {
+  border-radius: 12px; background-color: #1a211c; color: #f5f7f3; font-size: 12px;
+}
+.two { width: 100%; height: 44px; margin-top: 6px; flex-direction: row; justify-content: space-between; }
+.three { width: 100%; height: 40px; margin-top: 6px; flex-direction: row; justify-content: space-between; }
+.half { width: 49%; }
+.third, .small { width: 32%; font-size: 11px; }
+.section-label { margin-top: 8px; margin-bottom: 4px; font-size: 10px; color: #89958d; }
+.sensor-line { margin-bottom: 4px; }
+.bottom { margin-top: 10px; }
+.back { width: 58px; height: 26px; padding: 0; background-color: transparent; color: #a1aca4; font-size: 10px; }
+.choice { background-color: #171d19; color: #ced7d0; }
+.text-input { width: 100%; height: 38px; padding: 0 12px; border-radius: 12px; background-color: #171d19; color: #f5f7f3; font-size: 12px; }
+.success { background-color: #9be5c5; color: #122018; }
+.opponent { background-color: #252a27; color: #f5f7f3; }
+.flat { background-color: #171d19; color: #ced7d0; }
+
+.card { width: 100%; padding: 8px 10px; border-radius: 12px; background-color: #171d19; flex-direction: column; }
+.recent { height: 96px; }
+.recent-empty { height: 96px; justify-content: center; }
+.metric-card { height: 78px; margin-top: 12px; }
+.score { margin-top: 2px; margin-bottom: 2px; font-size: 22px; color: #f5f7f3; }
+
+.tile-row { width: 100%; height: 70px; margin-top: 6px; flex-direction: row; justify-content: space-between; }
+.tile { width: 49%; height: 70px; padding: 5px 10px; border-radius: 12px; background-color: #171d19; flex-direction: column; justify-content: center; }
+.metric { font-size: 22px; color: #b8ef71; }
+.status { width: 100%; height: 54px; margin-top: 4px; flex-direction: column; }
+
+.setting { height: 40px; margin-top: 4px; }
+.stepper { width: 62%; height: 30px; flex-direction: row; align-items: center; justify-content: space-between; }
+.step { width: 22%; height: 30px; font-size: 12px; }
+.step-wide { width: 26%; height: 30px; border-radius: 12px; background-color: #1a211c; color: #f5f7f3; font-size: 12px; }
+.value { width: 44%; font-size: 13px; color: #f5f7f3; text-align: center; }
+
+.score-hero { width: 100%; height: 76px; margin-top: 6px; flex-direction: row; justify-content: space-between; align-items: center; }
+.player { width: 44%; height: 70px; padding: 4px; border-radius: 12px; background-color: #1a211c; flex-direction: column; align-items: center; justify-content: center; }
+.player-me { background-color: #263522; }
+.big-score { margin-top: 2px; font-size: 26px; color: #b8ef71; }
+.colon { font-size: 14px; color: #89958d; }
+.match-actions { margin-top: 6px; }
+
+.strip { width: 100%; height: 52px; margin-top: 8px; padding: 5px 8px; border-radius: 12px; background-color: #171d19; flex-direction: row; justify-content: space-between; }
+.strip-cell { width: 24%; flex-direction: column; align-items: center; justify-content: center; }
+.strip-value { font-size: 16px; color: #b8ef71; }
+
+.event { width: 100%; height: 26px; margin-top: 6px; padding: 6px; border-radius: 9px; background-color: #171d19; color: #a1aca4; font-size: 10px; text-align: center; }
+
+.training-card { height: 132px; margin-top: 4px; }
+.stats { height: 54px; margin-top: 6px; align-items: center; }
+.stat { font-size: 17px; color: #f5f7f3; text-align: center; }
+.stat-cell { width: 32%; height: 48px; flex-direction: column; align-items: center; justify-content: center; }
+
+.history-list { width: 100%; height: 264px; margin-top: 4px; }
+.history-item { width: 100%; height: 72px; padding: 4px 0; flex-direction: row; align-items: center; }
+.history-result { width: 28px; height: 28px; border-radius: 10px; background-color: #263522; color: #b8ef71; font-size: 11px; text-align: center; }
+.history-copy { width: 58%; height: 64px; margin-left: 10px; flex-direction: column; justify-content: center; }
+.history-score-box { width: 22%; height: 64px; flex-direction: row; align-items: center; justify-content: flex-end; }
+.item-title { font-size: 12px; color: #f5f7f3; }
+.history-score { font-size: 15px; color: #f5f7f3; }
+.empty-text { margin-top: 20px; }
+
+.summary-page { align-items: center; }
+.result { margin-top: 14px; margin-bottom: 2px; font-size: 34px; color: #b8ef71; }

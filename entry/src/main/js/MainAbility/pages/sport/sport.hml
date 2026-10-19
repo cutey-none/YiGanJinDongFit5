@@ -1,0 +1,74 @@
+<div class="root" onswipe="onSwipe">
+  <div class="frame">
+  <div class="top">
+    <div class="top-left"><text if="{{!backVisible}}" class="top-title">{{topTitle}}</text><input if="{{backVisible}}" class="back" type="button" value="‹" onclick="back"></input></div>
+    <div class="top-right"><text class="clock">{{now}}</text></div>
+  </div>
+  <div if="{{view == 'home'}}" class="page">
+    <image class="home-photo" src="/common/images/pool-hero.png"></image>
+    <div class="mode selected" onclick="choose8"><div class="ball"><text class="ball-number">❽</text></div><div class="mode-name"><text class="mode-label">中式八球</text></div><div class="arrow-box"><text class="arrow">›</text></div></div>
+    <div class="mode" onclick="choose9"><div class="ball-nine"><text class="ball-number">❾</text></div><div class="mode-name"><text class="mode-label">中式九球</text></div><div class="arrow-box"><text class="arrow">›</text></div></div>
+    <div class="mode" onclick="chooseSnooker"><div class="ball-rack"><image class="rack-image" src="/common/images/rack.png"></image></div><div class="mode-name"><text class="mode-label">斯诺克</text></div><div class="arrow-box"><text class="arrow">›</text></div></div>
+    <div class="footer"><input if="{{active}}" class="link" type="button" value="继续运动" onclick="start"></input><input if="{{!active}}" class="link" type="button" value="运动记录" onclick="openHistory"></input><input class="link" type="button" value="更多 · 记分 / 设置" onclick="openMore"></input></div>
+  </div>
+  <div if="{{view == 'detail'}}" class="page">
+    <text class="mode-title">{{mode}}</text><image class="detail-photo" src="/common/images/detail-photo.png"></image><input class="primary" type="button" value="开始运动" onclick="start"></input>
+  </div>
+  <div if="{{view == 'workout'}}" class="page">
+    <text class="timer">{{time}}</text><text class="caption">运动时间</text>
+    <div class="two">
+      <div class="tile-wide" onclick="openSpeed"><div class="tile-line"><text class="blue-icon">◴</text><text class="tile-value">{{speed}}</text></div><text class="small">出杆速度 m/s</text></div>
+      <div class="tile-wide" onclick="openRhythm"><div class="tile-line"><text class="green-icon">▥</text><text class="tile-value">{{rhythm}}%</text></div><text class="small">行律</text></div>
+    </div>
+    <div class="three">
+      <div class="tile" onclick="openCalories"><div class="tile-line"><text class="red-icon">♨</text><text class="tile-value">{{kcal}}</text></div><text class="small">热量 kcal</text></div>
+      <div class="tile" onclick="openStability"><div class="tile-line"><text class="green-icon">⌖</text><text class="tile-value">{{stability}}%</text></div><text class="small">出杆稳定性</text></div>
+      <div class="tile" onclick="openPosition"><div class="tile-line"><text class="blue-icon">◎</text><text class="tile-value">{{position}}%</text></div><text class="small">入位稳定性</text></div>
+    </div>
+    <div class="footer"><input class="link" type="button" value="本杆分析 ›" onclick="openAnalysis"></input><input class="link" type="button" value="Ⅱ 暂停" onclick="pause"></input></div>
+    <text class="dots">{{mainDots}}</text>
+  </div>
+  <div if="{{view == 'paused'}}" class="page pause-page">
+    <div class="pause-symbol"><text class="pause-icon">Ⅱ</text></div><text class="pause-title">已暂停</text><text class="pause-time">{{time}}</text><input class="primary" type="button" value="继续运动" onclick="resume"></input><input class="secondary" type="button" value="结束运动" onclick="finish"></input>
+  </div>
+  <div if="{{view == 'analysis'}}" class="page">
+    <div class="heading-row"><div class="heading-main"><text class="heading">本杆分析</text></div><div class="heading-side"><text class="small">{{shotLabel}}</text></div></div>
+    <image class="table" src="/common/images/table-shot.png"></image>
+    <text class="table-note">轨迹示意 · 腕部 IMU 无法还原落点</text>
+    <div class="analysis-values"><div class="stat"><text class="blue-value">{{shotSpeed}}</text><text class="small">出杆速度 m/s</text></div><div class="stat"><text class="green-value">{{shotStability}}%</text><text class="small">出杆稳定性</text></div><div class="stat"><text class="amber-value">{{shotPosition}}%</text><text class="small">入位稳定性</text></div></div>
+    <div class="footer"><input class="link" type="button" value="‹ 上一杆" onclick="previous"></input><input class="link" type="button" value="下一杆 ›" onclick="next"></input></div><text class="dots">{{analysisDots}}</text>
+  </div>
+  <div if="{{chartVisible}}" class="page">
+    <div class="heading-row"><div class="heading-main"><text class="heading">{{title}}</text></div></div>
+    <text class="detail-value">{{value}} {{unit}}</text><text class="green-caption">{{caption}}</text>
+    <div class="chart-row">
+      <div class="chart-y"><text class="axis-label">{{yTop}}</text><text class="axis-label">{{yMid}}</text><text class="axis-label">{{yBottom}}</text></div>
+      <canvas id="chart" ref="chart" class="chart"></canvas>
+    </div>
+    <text class="axis">{{axisText}}</text><text class="note">{{note}}</text>
+  </div>
+  <div if="{{view == 'stability'}}" class="page">
+    <div class="heading-row"><div class="heading-main"><text class="heading">出杆稳定性</text></div></div>
+    <text class="detail-value">{{stability}} %</text><text class="green-caption">{{caption}}</text>
+    <div class="chart-row">
+      <canvas id="ballChart" ref="ballChart" class="chart ball-chart"></canvas>
+      <div class="legend-col"><text class="legend-item">● 稳定</text><text class="legend-item">● 偏移</text></div>
+    </div>
+    <text class="note">{{note}}</text>
+  </div>
+  <div if="{{view == 'position'}}" class="page">
+    <div class="heading-row"><div class="heading-main"><text class="heading">入位稳定性</text></div></div>
+    <text class="detail-value">{{position}} %</text><text class="green-caption">{{caption}}</text>
+    <image class="position-table" src="/common/images/position-map.png"></image>
+    <text class="legend">示意 · ● 理想位置                  ● 实际位置</text><text class="note">球桌落点需要外部视觉追踪</text>
+  </div>
+  <div if="{{view == 'posture'}}" class="page">
+    <div class="heading-row"><div class="heading-main"><text class="heading">姿势检测</text></div></div>
+    <image class="posture" src="/common/images/posture.png"></image>
+    <text class="pose-status">待接入姿态数据</text><text class="note">姿势示意 · 单手表无法判断全身对齐</text><text class="dots">{{poseDots}}</text>
+  </div>
+  <div if="{{view == 'calories'}}" class="page"><text class="heading">热量</text><text class="detail-value">{{kcal}} kcal</text><text class="note">根据心率、年龄、体重和性别估算</text><text class="note">未采集到有效心率时显示 --</text></div>
+  <div if="{{view == 'summary'}}" class="page"><text class="summary-check">✓</text><text class="mode-title">{{summaryMode}} · 运动完成</text><text class="pause-time">{{summaryTime}}</text><text class="green-caption" onclick="openAnalysis">{{savedNotice}} · {{summaryShots}} 杆 · 点击回看</text><input class="primary" type="button" value="回到首页" onclick="home"></input><input class="secondary" type="button" value="运动记录" onclick="openHistory"></input></div>
+  <div if="{{view == 'history'}}" class="page"><text class="heading">运动记录</text><text if="{{empty}}" class="empty">还没有记录，开始第一场运动吧</text><list class="history-list"><list-item for="{{item in history}}" class="history-item" onclick="openRecord(item.index)"><text class="history-title">{{item.mode}} · {{item.time}}</text><text class="small">{{item.date}}</text></list-item></list></div>
+  </div>
+</div>

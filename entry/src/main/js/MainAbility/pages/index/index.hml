@@ -1,0 +1,306 @@
+<div class="root" onswipe="onSwipe">
+  <div class="topline">
+    <text class="brand" onclick="openSport">‹ 台球运动</text>
+    <text class="battery">{{batteryText}}</text>
+  </div>
+
+  <!-- 首页 -->
+  <div if="{{view == 'home'}}" class="page">
+    <text class="eyebrow">BILLIARDS LOGBOOK</text>
+    <text class="page-title">今天打几局？</text>
+    <text class="tiny sensor-line">{{sensorLine}}</text>
+    <input class="primary" type="button" value="＋ 开始对局" onclick="openSetup"></input>
+    <div class="two">
+      <input class="secondary half" type="button" value="开始训练" onclick="openTraining"></input>
+      <input class="secondary half" type="button" value="看历史" onclick="openHistory"></input>
+    </div>
+    <div class="two">
+      <input class="secondary half" type="button" value="实时数据" onclick="openLive"></input>
+      <input class="secondary half" type="button" value="设置" onclick="openSettings"></input>
+    </div>
+    <text class="section-label">最近一场</text>
+    <div if="{{hasSessions}}" class="card recent">
+      <div class="row">
+        <div class="row-main"><text class="muted">{{lastSession.mode}} · {{lastSession.opponent}}</text></div>
+        <div class="row-side"><text class="accent">{{lastSession.result}}</text></div>
+      </div>
+      <text class="score">{{lastSession.me}} : {{lastSession.them}}</text>
+      <text class="tiny">{{lastSession.duration}} · {{lastSession.date}}</text>
+      <text class="tiny">{{lastSession.metricText}}</text>
+    </div>
+    <div if="{{noSessions}}" class="card recent-empty">
+      <text class="muted">还没有对局记录</text>
+      <text class="tiny">记录一场后这里会显示比分与出杆数据</text>
+      <text class="tiny">出杆数据全部来自手表传感器实算</text>
+    </div>
+  </div>
+
+  <!-- 实时数据（真实传感器） -->
+  <div if="{{view == 'live'}}" class="page">
+    <div class="row">
+      <div class="row-main"><input class="back" type="button" value="‹ 返回" onclick="goHome"></input></div>
+      <div class="row-side"><text class="tiny">{{live.wornText}} · {{live.rateText}}</text></div>
+    </div>
+    <text class="eyebrow">LIVE SENSOR DATA</text>
+    <text class="page-title-sm">实时数据</text>
+    <div class="tile-row">
+      <div class="tile">
+        <text class="metric">{{live.hrText}}</text>
+        <text class="tiny">心率 bpm</text>
+        <text class="tiny">{{live.hrRange}}</text>
+      </div>
+      <div class="tile">
+        <text class="metric">{{live.kcalText}}</text>
+        <text class="tiny">{{live.kcalNote}}</text>
+        <text class="tiny">心率×体重×时间实算</text>
+      </div>
+    </div>
+    <div class="tile-row">
+      <div class="tile">
+        <text class="metric">{{live.strokeText}}</text>
+        <text class="tiny">{{live.strokeNote}}</text>
+        <text class="tiny">加速度计+陀螺仪检出</text>
+      </div>
+      <div class="tile">
+        <text class="metric">{{live.speedText}}</text>
+        <text class="tiny">{{live.speedNote}}</text>
+        <text class="tiny">{{live.speedMaxText}}</text>
+      </div>
+    </div>
+    <div class="tile-row">
+      <div class="tile">
+        <text class="metric">{{live.stabilityText}}</text>
+        <text class="tiny">{{live.stabilityNote}}</text>
+        <text class="tiny">0-100 越高越稳</text>
+      </div>
+      <div class="tile">
+        <text class="metric">{{live.positionText}}</text>
+        <text class="tiny">{{live.positionNote}}</text>
+        <text class="tiny">0-100 越高越准</text>
+      </div>
+    </div>
+    <div class="status">
+      <text class="tiny">{{live.sensorText}}</text>
+      <text class="tiny">{{live.sensorDetail}}</text>
+      <text class="tiny">{{live.rawText}}</text>
+      <text class="tiny">{{live.hint}}</text>
+    </div>
+  </div>
+
+  <!-- 设置：热量估算需要的身体参数 -->
+  <div if="{{view == 'settings'}}" class="page">
+    <div class="row">
+      <div class="row-main"><input class="back" type="button" value="‹ 返回" onclick="goHome"></input></div>
+      <div class="row-side"><text class="muted">设置</text></div>
+    </div>
+    <text class="eyebrow">PROFILE &amp; SENSORS</text>
+    <text class="page-title-sm">设置</text>
+    <div class="row setting">
+      <text class="muted">性别</text>
+      <div class="stepper">
+        <input class="step" type="button" value="男" onclick="setGenderMale"></input>
+        <input class="step" type="button" value="女" onclick="setGenderFemale"></input>
+      </div>
+    </div>
+    <div class="row setting">
+      <text class="muted">年龄</text>
+      <div class="stepper">
+        <input class="step" type="button" value="－" onclick="ageDown"></input>
+        <text class="value">{{profile.ageText}}</text>
+        <input class="step" type="button" value="＋" onclick="ageUp"></input>
+      </div>
+    </div>
+    <div class="row setting">
+      <text class="muted">体重</text>
+      <div class="stepper">
+        <input class="step" type="button" value="－" onclick="weightDown"></input>
+        <text class="value">{{profile.weightText}}</text>
+        <input class="step" type="button" value="＋" onclick="weightUp"></input>
+      </div>
+    </div>
+    <div class="row setting">
+      <text class="muted">振动反馈</text>
+      <input class="step-wide" type="button" value="{{settings.vibrateText}}" onclick="toggleVibrate"></input>
+    </div>
+    <div class="row setting">
+      <text class="muted">运动数据（心率/出杆）</text>
+      <input class="step-wide" type="button" value="{{settings.motionText}}" onclick="toggleMotion"></input>
+    </div>
+    <div class="status">
+      <text class="tiny">体重×年龄×性别用于把心率换算成热量</text>
+      <text class="tiny">{{live.sensorText}}</text>
+    </div>
+  </div>
+
+  <!-- 新建对局 -->
+  <div if="{{view == 'setup'}}" class="page">
+    <div class="row">
+      <div class="row-main"><input class="back" type="button" value="‹ 返回" onclick="goHome"></input></div>
+      <div class="row-side"><text class="muted">新建对局</text></div>
+    </div>
+    <text class="eyebrow">MATCH SETUP</text>
+    <text class="page-title-sm">准备开球</text>
+    <text class="section-label">选择球种</text>
+    <div class="two">
+      <input class="choice half" type="button" value="8球" onclick="choose8"></input>
+      <input class="choice half" type="button" value="9球" onclick="choose9"></input>
+    </div>
+    <text class="section-label">比赛目标</text>
+    <div class="three">
+      <input class="choice third" type="button" value="一局" onclick="chooseOne"></input>
+      <input class="choice third" type="button" value="先赢3局" onclick="chooseThree"></input>
+      <input class="choice third" type="button" value="先赢5局" onclick="chooseFive"></input>
+    </div>
+    <text class="section-label">对手</text>
+    <input class="text-input" type="text" value="{{opponent}}" placeholder="球友" onchange="changeOpponent"></input>
+    <input class="primary bottom" type="button" value="开始记录" onclick="startMatch"></input>
+  </div>
+
+  <!-- 对局 -->
+  <div if="{{view == 'match'}}" class="page">
+    <div class="row">
+      <div class="row-main"><text class="accent">{{match.mode}}</text></div>
+      <div class="row-side"><text class="tiny">{{match.time}}</text></div>
+    </div>
+    <div class="score-hero">
+      <div class="player player-me">
+        <text class="muted">我</text>
+        <text class="big-score">{{match.me}}</text>
+      </div>
+      <text class="colon">:</text>
+      <div class="player">
+        <text class="muted">{{match.opponent}}</text>
+        <text class="big-score">{{match.them}}</text>
+      </div>
+    </div>
+    <text class="tiny center">第 {{match.rack}} 局 · 目标 {{match.race}} 局</text>
+    <div class="two match-actions">
+      <input class="primary half" type="button" value="我赢一局" onclick="winMe"></input>
+      <input class="opponent half" type="button" value="对手赢一局" onclick="winThem"></input>
+    </div>
+    <div class="three">
+      <input class="flat small" type="button" value="犯规 {{match.fouls}}" onclick="foul"></input>
+      <input class="flat small" type="button" value="清台 {{match.clears}}" onclick="clearRack"></input>
+      <input class="flat small" type="button" value="撤销" onclick="undo"></input>
+    </div>
+    <div class="strip" onclick="openLive">
+      <div class="strip-cell">
+        <text class="strip-value">{{live.hrText}}</text>
+        <text class="tiny">心率</text>
+      </div>
+      <div class="strip-cell">
+        <text class="strip-value">{{live.kcalText}}</text>
+        <text class="tiny">热量</text>
+      </div>
+      <div class="strip-cell">
+        <text class="strip-value">{{live.strokeText}}</text>
+        <text class="tiny">出杆</text>
+      </div>
+      <div class="strip-cell">
+        <text class="strip-value">{{live.speedText}}</text>
+        <text class="tiny">km/h</text>
+      </div>
+    </div>
+    <text class="event" if="{{match.lastEvent != ''}}">{{match.lastEvent}}</text>
+    <input class="secondary bottom" type="button" value="结束并保存" onclick="endMatch"></input>
+  </div>
+
+  <!-- 训练 -->
+  <div if="{{view == 'training'}}" class="page">
+    <div class="row">
+      <div class="row-main"><input class="back" type="button" value="‹ 返回" onclick="goHome"></input></div>
+      <div class="row-side"><text class="muted">训练模式</text></div>
+    </div>
+    <text class="eyebrow">PRACTICE MODE</text>
+    <text class="page-title-sm">把今天练出来</text>
+    <div class="card training-card">
+      <div class="three stats">
+        <div class="stat-cell">
+          <text class="stat">{{training.time}}</text>
+          <text class="tiny">训练时间</text>
+        </div>
+        <div class="stat-cell">
+          <text class="stat">{{training.success}}</text>
+          <text class="tiny">成功</text>
+        </div>
+        <div class="stat-cell">
+          <text class="stat">{{training.fail}}</text>
+          <text class="tiny">失误</text>
+        </div>
+      </div>
+      <input class="primary" type="button" value="{{training.label}}" onclick="toggleTraining"></input>
+    </div>
+    <div class="strip">
+      <div class="strip-cell">
+        <text class="strip-value">{{live.strokeText}}</text>
+        <text class="tiny">出杆次数</text>
+      </div>
+      <div class="strip-cell">
+        <text class="strip-value">{{live.speedText}}</text>
+        <text class="tiny">最近速度</text>
+      </div>
+      <div class="strip-cell">
+        <text class="strip-value">{{live.stabilityText}}</text>
+        <text class="tiny">出杆稳定性</text>
+      </div>
+      <div class="strip-cell">
+        <text class="strip-value">{{live.positionText}}</text>
+        <text class="tiny">入位稳定性</text>
+      </div>
+    </div>
+    <div class="two">
+      <input class="success half" type="button" value="成功 ＋1" onclick="trainingSuccess"></input>
+      <input class="opponent half" type="button" value="失误 ＋1" onclick="trainingFail"></input>
+    </div>
+    <text class="tiny">{{live.hint}}</text>
+  </div>
+
+  <!-- 历史 -->
+  <div if="{{view == 'history'}}" class="page">
+    <div class="row">
+      <div class="row-main"><input class="back" type="button" value="‹ 返回" onclick="goHome"></input></div>
+      <div class="row-side"><text class="muted">历史对局</text></div>
+    </div>
+    <text class="eyebrow">YOUR LOGBOOK</text>
+    <text class="page-title-sm">历史记录</text>
+    <text class="muted empty-text" if="{{noSessions}}">还没有记录，先去打一局吧</text>
+    <list class="history-list">
+      <list-item for="{{item in sessions}}" class="history-item">
+        <text class="history-result">{{item.result}}</text>
+        <div class="history-copy">
+          <text class="item-title">{{item.mode}} · {{item.opponent}}</text>
+          <text class="tiny">{{item.date}} · {{item.duration}}</text>
+          <text class="tiny">出杆 {{item.strokes}} · 最快 {{item.speedMax}} km/h · {{item.kcal}} kcal</text>
+        </div>
+        <div class="history-score-box"><text class="history-score">{{item.me}}:{{item.them}}</text></div>
+      </list-item>
+    </list>
+  </div>
+
+  <!-- 结算 -->
+  <div if="{{view == 'summary'}}" class="page summary-page">
+    <text class="eyebrow">MATCH COMPLETE</text>
+    <text class="result">{{lastSession.result}}</text>
+    <text class="tiny center">{{lastSession.mode}} · {{lastSession.opponent}}</text>
+    <text class="score center">{{lastSession.me}} : {{lastSession.them}}</text>
+    <div class="three stats">
+      <div class="stat-cell">
+        <text class="stat">{{lastSession.duration}}</text>
+        <text class="tiny">比赛时间</text>
+      </div>
+      <div class="stat-cell">
+        <text class="stat">{{lastSession.fouls}}</text>
+        <text class="tiny">犯规</text>
+      </div>
+      <div class="stat-cell">
+        <text class="stat">{{lastSession.clears}}</text>
+        <text class="tiny">清台</text>
+      </div>
+    </div>
+    <div class="card metric-card">
+      <text class="eyebrow">SENSOR SUMMARY</text>
+      <text class="muted">{{lastSession.metricText}}</text>
+    </div>
+    <input class="primary bottom" type="button" value="回到首页" onclick="goHome"></input>
+  </div>
+</div>

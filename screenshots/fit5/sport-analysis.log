@@ -1,0 +1,74 @@
+[INFO][ThinPreviewer.cpp][main][102][2026-09-27T18:24:21.162]:ThinPreviewer enter the main function.
+[INFO][CommandParser.cpp][IsDebugPortValid][327][2026-09-27T18:24:21.162]:CommandParser debug port:
+[INFO][CommandParser.cpp][IsAppNameValid][362][2026-09-27T18:24:21.162]:CommandParser app name: entry
+[INFO][CommandParser.cpp][IsResolutionValid][375][2026-09-27T18:24:21.162]:CommandParser resolution: 480 408 480 408
+[INFO][CommandParser.cpp][IsJsHeapValid][402][2026-09-27T18:24:21.162]:CommandParser js heap: 524288
+[INFO][CommandParser.cpp][IsJsHeapFlagValid][417][2026-09-27T18:24:21.162]:CommandParser is send JS heap: 1
+[INFO][CommandParser.cpp][IsScreenShapeValid][432][2026-09-27T18:24:21.162]:CommandParser screen shape: rect
+[INFO][CommandParser.cpp][IsDeviceValid][447][2026-09-27T18:24:21.162]:CommandParser device: liteWearable
+[INFO][CommandParser.cpp][IsUrlValid][458][2026-09-27T18:24:21.162]:CommandParser url: pages/sport/sport
+[INFO][CommandParser.cpp][IsWebSocketPortValid][667][2026-09-27T18:24:21.162]:CommandParser WebSocket listening port: 40181
+[INFO][CommandParser.cpp][IsScreenModeValid][684][2026-09-27T18:24:21.162]:CommandParser screen mode: dynamic
+[INFO][CommandParser.cpp][IsLocalSocketNameValid][728][2026-09-27T18:24:21.162]:CommandParser s: ygj_capture
+[INFO][CommandParser.cpp][IsScreenDensityValid][756][2026-09-27T18:24:21.162]:CommandParser sd: 160
+[INFO][ModelManager.cpp][SetCurrentDevice][47][2026-09-27T18:24:21.163]:Start Simulator: ***
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.163]:CppTimerManager::AddCppTimer
+[ERROR][LocalSocket.cpp][ConnectToServer][47][2026-09-27T18:24:21.163]:connect socket failed
+[FATAL][CommandLineInterface.cpp][InitPipe][49][2026-09-27T18:24:21.163]:CommandLineInterface command pipe connect failed
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: KeepScreenOnState
+[INFO][CommandLine.cpp][RunSet][916][2026-09-27T18:24:21.163]:Set keepScreenOnState run finished, the value is: true
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: Brightness
+[INFO][CommandLine.cpp][RunSet][1062][2026-09-27T18:24:21.163]:Set brightness run finished, the value is: 170
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: WearingState
+[INFO][CommandLine.cpp][RunSet][949][2026-09-27T18:24:21.163]:Set wearingState run finished, the value is: true
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: HeartRate
+[INFO][CommandLine.cpp][RunSet][1101][2026-09-27T18:24:21.163]:Set heartRate run finished, the value is: 100
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: StepCount
+[INFO][CommandLine.cpp][RunSet][1144][2026-09-27T18:24:21.163]:Set stepCount run finished, the value is: 0
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: Barometer
+[INFO][CommandLine.cpp][RunSet][424][2026-09-27T18:24:21.163]:Set barometer run finished, the value is: 101325
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: Power
+[INFO][CommandLine.cpp][RunSet][366][2026-09-27T18:24:21.163]:Set power run finished, the value is: 0.620000
+[INFO][CommandLineFactory.cpp][CreateCommandLine][93][2026-09-27T18:24:21.163]:Create Command: Language
+[INFO][CommandLine.cpp][RunSet][771][2026-09-27T18:24:21.163]:Set language run finished, language is: zh-CN
+[ERROR][LocalSocket.cpp][ConnectToServer][47][2026-09-27T18:24:21.163]:connect socket failed
+[ERROR][TraceTool.cpp][InitPipe][36][2026-09-27T18:24:21.163]:TraceTool::pipe connect failed
+[INFO][TraceTool.cpp][HandleTrace][57][2026-09-27T18:24:21.163]:Trace pipe is not prepared
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.163]:CppTimerManager::AddCppTimer
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.163]:CppTimerManager::AddCppTimer
+[INFO][JsAppImpl.cpp][StartJsApp][228][2026-09-27T18:24:21.166]:Launch JS APP.
+[INFO][JsAppImpl.cpp][StartJsApp][229][2026-09-27T18:24:21.166]:Debug Server Enable: 0
+[INFO][WebSocketServer.cpp][StartWebsocketListening][133][2026-09-27T18:24:21.166]:Launch Js app
+[INFO][JsAppImpl.cpp][StartJsApp][239][2026-09-27T18:24:21.166]:Launch Js app
+[INFO][TraceTool.cpp][HandleTrace][57][2026-09-27T18:24:21.166]:Trace pipe is not prepared
+[2026/09/27 18:24:21:1660] N: lws_create_context: LWS: 4.3.3, NET CLI SRV H1 H2 WS IPv6-absent
+[ACELite][INFO]:LIFECYCLE: JS Ability is launching
+[ACELite][DEBUG]:ACELite is running in JS parser mode
+[ERROR][LocalSocket.cpp][WriteData][113][2026-09-27T18:24:21.166]:LocalSocket::WriteData ReadFile failed
+[ACELite][INFO]:Success to load JavaScript framework.
+[INFO][BatteryModuleImpl.cpp][GetBatteryStatus][40][2026-09-27T18:24:21.168]:Battery charge state: 0 level: 0.620000
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.168]:CppTimerManager::AddCppTimer
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.168]:CppTimerManager::AddCppTimer
+[Console Info] [yigangjindong] 应用启动，等待真实传感器数据
+[2026/09/27 18:24:21:1687] E: [null wsi]: lws_socket_bind: ERROR on binding fd 10 to port 40181 (-1 48)
+[2026/09/27 18:24:21:1687] E: [vh|0|default|127.0.0.1|127.0.0.1|40181]: lws_create_vhost: init server failed
+[2026/09/27 18:24:21:1687] E: lws_create_context: Failed to create default vhost
+[ACELite][INFO]:undefined state -> init state
+[ERROR][WebSocketServer.cpp][StartWebsocketListening][142][2026-09-27T18:24:21.168]:WebSocketServer::StartWebsocketListening context memory allocation failed
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.171]:CppTimerManager::AddCppTimer
+[ACELite][INFO]:init state -> ready state
+[ACELite][INFO]:current state(1) -> show state
+[ACELite][INFO]:LIFECYCLE: JS Ability will be shown
+[ACELite][ERROR]:current state(2) is invalid when changing ready state to show state.
+[INFO][JsAppImpl.cpp][StartJsApp][252][2026-09-27T18:24:21.178]:JsApp::StartJsApp launch with single page mode finished.
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.178]:CppTimerManager::AddCppTimer
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.178]:CppTimerManager::AddCppTimer
+[INFO][CppTimerManager.cpp][AddCppTimer][35][2026-09-27T18:24:21.178]:CppTimerManager::AddCppTimer
+[INFO][VirtualScreenImpl.cpp][Flush][252][2026-09-27T18:24:21.194]:Get first render buffer
+[INFO][TraceTool.cpp][HandleTrace][57][2026-09-27T18:24:21.194]:Trace pipe is not prepared
+[INFO][TimerTaskHandler.cpp][CheckBrightnessValueChanged][105][2026-09-27T18:24:21.263]:CheckBrightnessValueChanged send Brightness: 170
+[ERROR][LocalSocket.cpp][WriteData][113][2026-09-27T18:24:21.263]:LocalSocket::WriteData ReadFile failed
+[ERROR][LocalSocket.cpp][WriteData][113][2026-09-27T18:24:22.164]:LocalSocket::WriteData ReadFile failed
+[ERROR][LocalSocket.cpp][WriteData][113][2026-09-27T18:24:23.164]:LocalSocket::WriteData ReadFile failed
+[ERROR][LocalSocket.cpp][WriteData][113][2026-09-27T18:24:24.164]:LocalSocket::WriteData ReadFile failed
+[ERROR][LocalSocket.cpp][WriteData][113][2026-09-27T18:24:25.166]:LocalSocket::WriteData ReadFile failed

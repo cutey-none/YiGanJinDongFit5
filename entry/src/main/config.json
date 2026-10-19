@@ -1,0 +1,78 @@
+{
+  "app": {
+    "bundleName": "com.xxl.wqy.bobo.ergou.hole_in_one",
+    "vendor": "yigangjindong",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {},
+  "module": {
+    "deviceType": [
+      "liteWearable"
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.ACCELEROMETER",
+        "reason": "运动时采集加速度以检测出杆",
+        "usedScene": {
+          "ability": [".MainAbility"],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.GYROSCOPE",
+        "reason": "运动时采集角速度以分析出杆稳定性",
+        "usedScene": {
+          "ability": [".MainAbility"],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.READ_HEALTH_DATA",
+        "reason": "运动时读取心率以估算热量",
+        "usedScene": {
+          "ability": [".MainAbility"],
+          "when": "inuse"
+        }
+      },
+      {
+        "name": "ohos.permission.ACTIVITY_MOTION",
+        "reason": "运动时读取活动数据",
+        "usedScene": {
+          "ability": [".MainAbility"],
+          "when": "inuse"
+        }
+      }
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry"
+    },
+    "abilities": [
+      {
+        "name": ".MainAbility",
+        "srcLanguage": "js",
+        "srcPath": "MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:MainAbility_desc",
+        "label": "$string:MainAbility_label",
+        "type": "page"
+      }
+    ],
+    "js": [
+      {
+        "pages": [
+          "pages/sport/sport",
+          "pages/index/index"
+        ],
+        "name": ".MainAbility",
+        "window": {
+          "designWidth": 480
+        }
+      }
+    ]
+  }
+}
